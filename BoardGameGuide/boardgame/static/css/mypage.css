@@ -1,0 +1,48 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    text-decoration: none;
+    
+  
+  }
+  
+  .body {
+    background-color: #CCD6D7;
+  }
+
+  .jumbotron{
+      background-color: #EB9887;
+      color: #ffffff;
+      padding: 50px 10px;
+      margin-bottom: 0px;
+      
+  }
+
+  .navbar{
+      background-color:#EDECED;
+      
+}
+  
+
+  
+  .btn{
+      background-color: #52615C;
+      color: #ffffff;
+  }
+
+  .nav-link {
+    color:#52615C ;
+    font-size: 15px;
+    
+  }
+
+  .navbar-brand{
+    color:#52615C ;
+    font-size: 15px;
+  }
+
+  .photo{
+    width: 10px;
+    height: 10px;
+    
+  }
