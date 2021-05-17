@@ -1,0 +1,74 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    text-decoration: none;
+    
+  
+  }
+  
+  .body {
+    background-color: #CCD6D7;
+  }
+
+  .jumbotron{
+      background-color: #EB9887;
+      color: #ffffff;
+      padding: 50px 10px;
+      margin-bottom: 0px;
+      
+  }
+
+  .navbar{
+      background-color:#EDECED;
+      color: #52615C;
+  }
+
+
+  .btn{
+      background-color: #52615C;
+      color: #ffffff;
+      width: 18%;
+      font-size: 20px;
+  }
+
+  .btn-a{
+    background-color: #52615C;
+    color: #ffffff;
+    width: 10%;
+    font-size: 20px;
+    
+    
+  }
+
+  .dropdown{
+      text-align: center;
+      margin: 25px;
+  }
+  
+  .dropdown-menu{
+      background-color: #52615C;
+      
+  }
+
+  .dropdown-item{
+    color: #ffffff;
+  }
+
+  .input{
+    width: 50%;
+    font-size: 30px;
+    border-radius: 15px;
+    
+  }
+
+  .nav-link {
+      color:#52615C;
+      font-size: 15px;
+  }
+
+  .navbar-brand{
+    color:#52615C;
+    font-size: 15px;
+  }
+
+  
