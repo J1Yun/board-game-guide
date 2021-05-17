@@ -15,7 +15,12 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+import boardgame.views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('', boardgame.views.main, name='main'),
+    path('login/',boardgame.views.login, name='login'),
+    path('signup/',boardgame.views.signup, name='signup'),
+    path('mypage/',boardgame.views.mypage, name='mypage'),
 ]
