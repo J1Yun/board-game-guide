@@ -13,3 +13,6 @@ def signup(request):
 
 def mypage(request):
     return render(request, 'mypage.html')
+
+def game(request):
+    return render(request, 'game.html')
