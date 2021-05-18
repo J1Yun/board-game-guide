@@ -1,0 +1,40 @@
+
+:root{
+ 
+    --background-color: yellow;
+    --background-color2: white;
+    --background-color3: green;
+
+}
+
+.navbar{
+    background-color: #EDECED;
+
+}
+.nav-link {
+    color:#52615C;
+    font-size: 15px;
+}
+
+.navbar-brand{
+  color:#52615C;
+  font-size: 15px;
+}
+.title{
+    background-color: var(--background-color3);
+
+}
+
+.rule{
+    background-color: var(--background-color);
+
+}
+
+.ruleselect{
+    background-color: var(--background-color2);
+    text-align: center;
+}
+
+.intro{
+    background-color: var(--background-color);
+}
