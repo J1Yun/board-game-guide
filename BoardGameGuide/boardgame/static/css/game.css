@@ -1,4 +1,5 @@
 
+
 :root{
  
     --background-color: yellow;
@@ -7,6 +8,9 @@
 
 }
 
+h1{
+    margin:0px;
+}
 .navbar{
     background-color: #EDECED;
 
@@ -22,19 +26,28 @@
 }
 .title{
     background-color: var(--background-color3);
+    margin-left:60px;
+    margin-right:60px;
+
 
 }
 
 .rule{
     background-color: var(--background-color);
+    margin-left:60px;
+    margin-right:60px;
 
 }
 
 .ruleselect{
     background-color: var(--background-color2);
     text-align: center;
+    margin-left:60px;
+    margin-right:60px;
 }
 
 .intro{
     background-color: var(--background-color);
+    margin-left:60px;
+    margin-right:60px;
 }
