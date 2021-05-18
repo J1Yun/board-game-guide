@@ -1,0 +1,45 @@
+:root {
+  --background-color: yellow;
+  --background-color2: white;
+  --background-color3: green;
+}
+
+h1 {
+  margin: 0px;
+}
+.navbar {
+  background-color: #edeced;
+}
+.nav-link {
+  color: #52615c;
+  font-size: 15px;
+}
+
+.navbar-brand {
+  color: #52615c;
+  font-size: 15px;
+}
+.title {
+  background-color: var(--background-color3);
+  margin-left: 60px;
+  margin-right: 60px;
+}
+
+.rule {
+  background-color: var(--background-color);
+  margin-left: 60px;
+  margin-right: 60px;
+}
+
+.ruleselect {
+  background-color: var(--background-color2);
+  text-align: center;
+  margin-left: 60px;
+  margin-right: 60px;
+}
+
+.intro {
+  background-color: var(--background-color);
+  margin-left: 60px;
+  margin-right: 60px;
+}
