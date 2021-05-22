@@ -44,10 +44,20 @@
                     <h1 class="text-center">BoardGame Guide</h1>
                 </div>
             </header>
-            <br>
-            <input type="text" name="keyword" class="input">
-​​​​​​​             <button type="submit" class="btn-a">SEARCH</button>
-
+            
+                <form class="search" >
+                  <div class="search-box" style="text-align: center;"></div>
+                  <div class="row justify-content-md-center">
+                    <div class="col col-lg-5" style="padding: 0;">
+                      <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                    </div>
+                    <div class="col col-lg-1">
+                      <button class="btn btn-outline-secondary w-100 h-100" type="submit">Search</button>
+                    </div>
+                  </div>
+                  </div>
+                </form>
+                
             <div class="dropdown">
                 <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
                   게임인원수
@@ -62,9 +72,13 @@
                     게임 유형
                   </button>
                   <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                    <li><a class="dropdown-item" href="#">가족 게임</a></li>
-                    <li><a class="dropdown-item" href="#">전략 게임</a></li>
-                    <li><a class="dropdown-item" href="#">퍼즐</a></li>
+                    <li><a class="dropdown-item" href="#">전략게임</a></li>
+                    <li><a class="dropdown-item" href="#">테마게임</a></li>
+                    <li><a class="dropdown-item" href="#">가족게임</a></li>
+                    <li><a class="dropdown-item" href="#">어린이게임</a></li>
+                    <li><a class="dropdown-item" href="#">파티게임</a></li>
+                    <li><a class="dropdown-item" href="#">워게임</a></li>
+                    <li><a class="dropdown-item" href="#">기타</a></li>
                   </ul>
 
                   <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
@@ -84,8 +98,6 @@
                     <li><a class="dropdown-item" href="#">10세 이상</a></li>
                     <li><a class="dropdown-item" href="#">15세 이상</a></li>
                   </ul>
-              </div>
-
-           
+              </div>     
     </body>
 </html>
