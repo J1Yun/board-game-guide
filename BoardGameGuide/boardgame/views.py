@@ -5,7 +5,7 @@ from django.contrib.auth.hashers import make_password, check_password
 # Create your views here.
 
 def logout(request):
-    if request.session.get('user')
+    if request.session.get('user'):
         del(request.session['user'])
     return redirect('main')
     
