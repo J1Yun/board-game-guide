@@ -1,3 +1,10 @@
+:root{
+	--body-background-color: #ffffff;
+	--font-color: #52615C;
+  --logo-background-color: #CCD6D7;
+	
+}
+
 *{
     margin: 0px;
     padding: 0px;
@@ -7,68 +14,74 @@
   }
   
   .body {
-    background-color: #CCD6D7;
+    background-color: var(--body-background-color);
   }
 
   .jumbotron{
-      background-color: #EB9887;
-      color: #ffffff;
+      background-color: var(--logo-background-color);
+      color: var(--font-color);
       padding: 50px 10px;
       margin-bottom: 0px;
       
   }
 
   .navbar{
-      background-color:#EDECED;
-      color: #52615C;
+      background-color:var(--font-color);
+     
   }
 
+  .nav-link  {
+    color:var(--body-background-color);
+    font-size: 15px;
+}
 
-  .btn{
-      background-color: #52615C;
-      color: #ffffff;
+ .navbar-brand {
+  color:var(--body-background-color);
+  font-size: 15px;
+}
+
+.btn-outline-success{
+  color: var(--font-color);
+  outline-color: var(--font-color);
+  
+}
+
+
+  .dropdown-toggle {
+      background-color:var(--body-background-color);
+      color: var(--font-color);
       width: 18%;
       font-size: 20px;
-  }
-
-  .btn-a{
-    background-color: #52615C;
-    color: #ffffff;
-    width: 10%;
-    font-size: 20px;
-    
-    
+      
   }
 
   .dropdown{
-      text-align: center;
+    text-align: center;
       margin: 25px;
   }
   
   .dropdown-menu{
-      background-color: #52615C;
-      
+      background-color:var(--body-background-color);
+      width: 18%;
+      color: var(--font-color);
   }
 
-  .dropdown-item{
-    color: #ffffff;
+  .dropdown-item:active {
+    background-color: var(--font-color);
+    }
+
+  .form-control{
+    width: 100%;
+    font-size: 20px;
   }
 
-  .input{
-    width: 50%;
-    font-size: 30px;
-    border-radius: 15px;
-    
+  .search{
+    margin-top: 25px;
   }
 
-  .nav-link {
-      color:#52615C;
-      font-size: 15px;
-  }
+ 
+  
 
-  .navbar-brand{
-    color:#52615C;
-    font-size: 15px;
-  }
+
 
   
