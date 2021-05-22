@@ -1,45 +1,80 @@
-:root {
+
+:root{
+ 
   --background-color: yellow;
   --background-color2: white;
   --background-color3: green;
+
 }
 
-h1 {
-  margin: 0px;
+h1{
+  margin:0px;
 }
-.navbar {
-  background-color: #edeced;
+.navbar{
+  background-color: #EDECED;
+
 }
 .nav-link {
-  color: #52615c;
+  color:#52615C;
   font-size: 15px;
 }
 
-.navbar-brand {
-  color: #52615c;
-  font-size: 15px;
+.navbar-brand{
+color:#52615C;
+font-size: 15px;
 }
-.title {
-  background-color: var(--background-color3);
-  margin-left: 60px;
-  margin-right: 60px;
+.title{
+  color:#52615C;
+  margin-top:30px;
+  margin-left:60px;
+  margin-right:50px;
+
+
 }
 
-.rule {
+.rule{
   background-color: var(--background-color);
-  margin-left: 60px;
-  margin-right: 60px;
+  margin-left:60px;
+  margin-right:60px;
+
 }
 
-.ruleselect {
+.ruleselect{
   background-color: var(--background-color2);
   text-align: center;
-  margin-left: 60px;
-  margin-right: 60px;
+  margin-left:100px;
+  margin-right:100px;
+
 }
 
-.intro {
+.ruleselect input[type=radio]{
+  display:none;
+}
+
+.ruleselect input[type=radio] + label{
+  display: inline-block;
+  cursor: pointer;
+  height: 40px;
+  width:300px;
+  border: 1px solid #EB9887;
+  line-height: 24px;
+  text-align: center;
+  font-weight:bold;
+  font-size:20px;
+
+  padding-top: 5px;
+
+  background-color: #fff;
+  color: #EB9887;
+}
+
+.ruleselect input[type = radio]:checked+label{
+  background-color: #EB9887;
+  color: #fff;
+}
+
+.intro{
   background-color: var(--background-color);
-  margin-left: 60px;
-  margin-right: 60px;
+  margin-left:60px;
+  margin-right:60px;
 }
