@@ -20,6 +20,7 @@ import boardgame.views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', boardgame.views.main, name='main'),
+    path('search', boardgame.views.search, name='search'),
     path('login/',boardgame.views.login, name='login'),
     path('signup/',boardgame.views.signup, name='signup'),
     path('mypage/',boardgame.views.mypage, name='mypage'),

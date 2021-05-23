@@ -15,8 +15,7 @@
                     <span class="navbar-toggler-icon"></span>
                   </button>
                   <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
-                    <a class="navbar-brand" href="#">Menu</a>
-                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <ul class="navbar-nav">
                       <li class="nav-item">
                         <a href="{% url 'main' %}" class="nav-link">Home</a>
                       </li>
@@ -36,7 +35,6 @@
                         <a href="{% url 'signup' %}" class="nav-link">회원가입</a>
                       </li>
                     </ul>
-                   
                   </div>
                 </div>
               </nav>
@@ -44,60 +42,83 @@
                     <h1 class="text-center">BoardGame Guide</h1>
                 </div>
             </header>
-            
-                <form class="search" >
-                  <div class="search-box" style="text-align: center;"></div>
+            <div class="container-md">
+                <form action="search" method="post">
+                  {% csrf_token %}
+                  <div class="search-box" style="margin: 30px">
                   <div class="row justify-content-md-center">
                     <div class="col col-lg-5" style="padding: 0;">
-                      <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                      <input class="form-control me-2" name="search_value" type="search" placeholder="Search" aria-label="Search">
                     </div>
                     <div class="col col-lg-1">
-                      <button class="btn btn-outline-secondary w-100 h-100" type="submit">Search</button>
+                      <button class="btn btn-outline-success w-100 h-100" type="submit" >Search</button>
                     </div>
                   </div>
                   </div>
                 </form>
-                
-            <div class="dropdown">
-                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                  게임인원수
-                </button>
-                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                  <li><a class="dropdown-item" href="#">2명</a></li>
-                  <li><a class="dropdown-item" href="#">3명</a></li>
-                  <li><a class="dropdown-item" href="#">4명 이상</a></li>
-                </ul>
-
-                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                    게임 유형
-                  </button>
-                  <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                    <li><a class="dropdown-item" href="#">전략게임</a></li>
-                    <li><a class="dropdown-item" href="#">테마게임</a></li>
-                    <li><a class="dropdown-item" href="#">가족게임</a></li>
-                    <li><a class="dropdown-item" href="#">어린이게임</a></li>
-                    <li><a class="dropdown-item" href="#">파티게임</a></li>
-                    <li><a class="dropdown-item" href="#">워게임</a></li>
-                    <li><a class="dropdown-item" href="#">기타</a></li>
-                  </ul>
-
-                  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                    게임 시간
-                  </button>
-                  <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                    <li><a class="dropdown-item" href="#">20분</a></li>
-                    <li><a class="dropdown-item" href="#">30분</a></li>
-                    <li><a class="dropdown-item" href="#">40분</a></li>
-                  </ul>
-
-                  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                    대상 연령
-                  </button>
-                  <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                    <li><a class="dropdown-item" href="#">5세 이상</a></li>
-                    <li><a class="dropdown-item" href="#">10세 이상</a></li>
-                    <li><a class="dropdown-item" href="#">15세 이상</a></li>
-                  </ul>
-              </div>     
+                <form action="." method="post">
+                <div class="container">
+                  <div class="row justify-content-md-center">
+                    <div class="col col-lg-3">
+                      <div class="form-floating">
+                        <select class="form-select" id="floatingSelect" aria-label="게임인원수" style="width: 100%">
+                          <option value="*" selected>전체</option>
+                          <option  value="2">2명</option>
+                          <option value="3">3명</option>
+                          <option value="4">4명</option>
+                          <option value="5">5명</option>
+                          <option value="6">6명 이상</option>
+                        </select>
+                        <label for="floatingSelect">게임인원수</label>
+                      </div>
+                    </div>
+                    <div class="col col-lg-3">
+                      <div class="form-floating">
+                        <select class="form-select" id="floatingSelect" aria-label="게임유형">
+                          <option value="*" selected>전체</option>
+                          <option value="1">전략게임</option>
+                          <option value="2">테마게임</option>
+                          <option value="3">가족게임</option>```
+                          <option value="4">어린이게임</option>
+                          <option value="5">파티게임</option>
+                          <option value="6">워게임</option>
+                          <option value="7">기타</option>
+                        </select>
+                        <label for="floatingSelect">게임 유형</label>
+                      </div>
+                    </div>
+                    <div class="col col-lg-3">
+                      <div class="form-floating">
+                        <select class="form-select" id="floatingSelect" aria-label="게임시간" >
+                          <option value="*" selected>전체</option>
+                          <option value="1">0-30분</option>
+                          <option value="2">30-60분</option>
+                          <option value="3">60-120분</option>
+                          <option value="4">120분 초과</option>
+                        </select>
+                        <label for="floatingSelect">게임 시간</label>
+                      </div>
+                    </div>
+                    <div class="col col-lg-3">
+                      <div class="form-floating">
+                        <select class="form-select" id="floatingSelect" aria-label="대상연령">
+                          <option value="*" selected>전체</option>
+                          <option value="5">만 5세 이상</option>
+                          <option value="7">만 7세 이상</option>
+                          <option value="10">만 10세 이상</option>
+                          <option value="14">만 14세 이상</option>
+                        </select>
+                        <label for="floatingSelect">대상 연령</label>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </form>
+          {% if gameList %}
+            {% for post in gameList %}
+              <h2>{{post.name}}</h2>
+            {% endfor %}
+          {% endif %}
+        </div>
     </body>
-</html>
+</html>  `
