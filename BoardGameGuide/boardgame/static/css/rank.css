@@ -1,0 +1,22 @@
+.navbar{
+    background-color: #EDECED;
+
+}
+.nav-link {
+    color:#52615C;
+    font-size: 15px;
+}
+
+.navbar-brand{
+  color:#52615C;
+  font-size: 15px;
+}
+
+.title{
+    color:#52615C;
+    margin-top:30px;
+    margin-left:60px;
+    margin-right:50px;
+
+
+}
