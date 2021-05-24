@@ -10,9 +10,7 @@
   text-decoration: none;
 }
 
-.body {
-  background-color: var(--body-background-color);
-}
+
 
 .jumbotron {
   background-color: var(--logo-background-color);
@@ -21,22 +19,6 @@
   margin-bottom: 0px;
 }
 
-.navbar {
-  background-color: var(--font-color);
-}
-
-.nav-link {
-  color: var(--body-background-color);
-  font-size: 15px;
-  text-decoration: none;
-}
-.nav-link:hover {
-  color: rgb(171, 184, 174);
-}
-.navbar-brand {
-  color: var(--body-background-color);
-  font-size: 15px;
-}
 
 .btn-outline-success {
   color: var(--font-color);
@@ -72,3 +54,4 @@
 .search-box {
   margin: 25px;
 }
+
