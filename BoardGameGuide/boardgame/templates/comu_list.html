@@ -1,0 +1,40 @@
+{% load static %}
+
+<html>
+    <head>
+        <link rel="stylesheet" type = "text/css" href="{% static 'css/comu_list.css' %}">
+    </head>
+    <body>
+        <div class="lists">
+            <div class="top">
+                <table class="table table-light">
+                    <thead class="thead-light">
+                        <tr>
+                            <th>NO.</th>
+                            <th>TYPE</th>
+                            <th>TITLE</th>
+                            <th>WRITER</th>
+                            <th>DATE</th>
+                        </tr>
+                    </thead>
+                    <tbody class="text-dark">
+                    {% for list in lists %}
+                    <tr>
+                        <th>{{ list.id }}</th>
+                        <th>{{ list.get_type_display }}</th>
+                        <th>{{ list.title }}</th>
+                        <th>{{ list.name }}</th>
+                        <th>{{ list.date }}</th>
+                    </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="write">
+            <div class="write">
+                <button class="btn">글쓰기</button>
+            </div>
+        </div>
+    </body>
+</html>
