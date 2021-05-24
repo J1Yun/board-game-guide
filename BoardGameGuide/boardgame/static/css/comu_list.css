@@ -1,0 +1,46 @@
+:root{
+    --table-background-color:#ccd6d7
+}
+.table{
+    width:800px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 40px;
+}
+
+thead{
+    background-color: var(--table-background-color);
+}
+
+.no{
+    width:30px;
+    text-align: center;
+}
+
+.type{
+    width:30px;
+    text-align: center;
+}
+
+.title{
+    width:280px;
+    text-align: center;
+}
+
+.writer{
+    width:100px;
+    text-align: center;
+}
+
+.date{
+    width:120px;
+    text-align: center;
+}
+
+td{
+    text-align: center;
+}
+
+.title_t{
+    text-align:left;
+}
