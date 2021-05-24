@@ -18,8 +18,11 @@ from django.contrib import admin
 from django.urls import path
 import boardgame.views
 
-
 urlpatterns = [
+    path('create/', boardgame.views.create, name = "create"),
+    path('comu_list/<int:community_id>', boardgame.views.comu_detail, name = 'comu_detail'),
+    path('comu_write/', boardgame.views.comu_write, name = 'comu_write'),
+    path('comu_list/', boardgame.views.comu_list, name = 'comu_list'),
     path('logout/', boardgame.views.logout, name = 'logout'),
     path('signup_done/', boardgame.views.signup_done, name = 'signup_done'),
     path('rank/', boardgame.views.rank, name = "rank"),
