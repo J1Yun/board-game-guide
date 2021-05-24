@@ -1,3 +1,7 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/comu_write.css' %}">
 <div class = "container">
     <form action = "{% url 'create' %}" method = "POST">
         {% csrf_token %}
@@ -11,3 +15,4 @@
     </form>
 </div>
 
+{% endblock %}
