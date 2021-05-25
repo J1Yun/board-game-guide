@@ -39,7 +39,7 @@ class Game(models.Model):
         return self.name
 
 class Community(models.Model):
-    writer_id = models.ForeignKey('User', on_delete=models.CASCADE)
+    name = models.ForeignKey('User', on_delete=models.CASCADE)
     TYPE_CHOICES = (
         ('r', '요청'),
         ('f', '자유'),
