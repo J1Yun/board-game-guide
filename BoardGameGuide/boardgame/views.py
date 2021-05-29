@@ -14,7 +14,8 @@ def signup_done(request):
     return render(request, 'signup_done.html')
 
 def rank(request):
-    return render(request, 'rank.html')
+    popular = Game.objects.all().order_by('-likes')[:10]
+    return render(request, 'rank.html', {'gameList' : popular})
 
 def main(request):
     gameList = Game.objects.all()
@@ -92,6 +93,22 @@ def signup(request):
         
         
 def mypage(request):
+    u_id = request.session.get('user')
+    if u_id:
+        userInfo = User.objects.get(pk=u_id)
+        try:
+            userPost = Community.objects.filter(writer_id=u_id)
+        except Community.DoesNotExist:
+            userPost = None
+        try:
+            userLike = Recommend.objects.select_related('game_id').filter(user_id=u_id)
+        except Recommend.DoesNotExist:
+            userLike = None
+        try:
+            userComment = Comment.objects.filter(writer_id=u_id)
+        except Comment.DoesNotExist:
+            userComment = None
+        return render(request, 'mypage.html', { 'userInfo':userInfo, 'userLike':userLike, 'userPost':userPost, 'userComment':userComment})
     return render(request, 'mypage.html')
 
 def game(request):

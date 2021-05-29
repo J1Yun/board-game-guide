@@ -64,18 +64,35 @@
       <div class="photo">
         <img src="{% static 'img/charlie.jpg' %}" />
       </div>
+      <p>{{userInfo.name}}</p>
+      <p>{{userInfo.email}}</p>
     </div>
-
+    <hr />
     <div id="section" class="best">
       <h4>좋아요 한 게임</h4>
+      {% if userLike %} {% for post in userLike %}
+      <p>{{post.game_id.name}}</p>
+      {% endfor %} {% else %}
+      <p>좋아하는 보드게임이 없습니다.</p>
+      {% endif %}
     </div>
-
+    <hr />
     <div id="section" class="writing">
       <h4>커뮤니티에 쓴 글</h4>
+      {% if userPost %} {% for post in userPost %}
+      <p>{{post.title}}</p>
+      {% endfor %} {% else %}
+      <p>작성한 게시글이 없습니다.</p>
+      {% endif %}
     </div>
-
+    <hr />
     <div id="section" class="comment">
       <h4>커뮤니티에 쓴 댓글</h4>
+      {% if userComment %} {% for post in userComment %}
+      <p>{{post.title}}</p>
+      {% endfor %} {% else %}
+      <p>작성한 댓글이 없습니다.</p>
+      {% endif %}
     </div>
   </body>
 </html>
