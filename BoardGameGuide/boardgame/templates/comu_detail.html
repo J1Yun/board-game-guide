@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/comu_detail.css' %}">
+          <div class = "container">
+              <br>
+              <h1 class = "name">POST</h1>
+              <br><br>
+              <h1 class = "title">{{details.title}}</h1>
+              <br>
+              <h5>{{details.name}}</h5>
+              <p class = "what">{{details.contents|linebreaksbr}}</p>
+              <br>
+              <p class = "date">{{details.date}}</p>
+          </div>
+ {% endblock %}

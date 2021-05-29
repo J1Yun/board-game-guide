@@ -12,8 +12,8 @@
   
   .loginForm {
     position:absolute;
-    width:300px;
-    height:400px;
+    width:350px;
+    height:650px;
     padding: 30px, 20px;
     background-color:#EDECED;
     text-align:center;
@@ -34,6 +34,24 @@
     padding: 10px 10px;
   }
   
+  .emailForm{
+    border-bottom: 2px solid #9CB0AD;
+    margin: 30px;
+    padding: 10px 10px;
+  }
+
+  .nicknameForm{
+    border-bottom: 2px solid #9CB0AD;
+    margin: 30px;
+    padding: 10px 10px;
+  }
+
+  .nameForm{
+    border-bottom: 2px solid #9CB0AD;
+    margin: 30px;
+    padding: 10px 10px;
+  }
+
   .passForm{
     border-bottom: 2px solid #9CB0AD;
     margin: 30px;
@@ -46,7 +64,7 @@
     padding: 10px 10px;
   }
   
-  .id {
+  .user_id {
     width: 100%;
     border:none;
     outline:none;
@@ -55,6 +73,37 @@
     height:25px;
     background: none;
   }
+
+  .e-mail {
+    width: 100%;
+    border:none;
+    outline:none;
+    color: #636e72;
+    font-size:16px;
+    height:25px;
+    background: none;
+  }
+
+  .nick-name {
+    width: 100%;
+    border:none;
+    outline:none;
+    color: #636e72;
+    font-size:16px;
+    height:25px;
+    background: none;
+  }
+
+  .name {
+    width: 100%;
+    border:none;
+    outline:none;
+    color: #636e72;
+    font-size:16px;
+    height:25px;
+    background: none;
+  }
+
   
   .pw {
     width: 100%;

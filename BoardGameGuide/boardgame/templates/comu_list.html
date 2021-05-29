@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/comu_list.css' %}">
+        <div class = "container-md">        
+            <table class="table">
+                <thead class = "tablehead">
+                    <tr>
+                        <th scope="col" class = "no">NO</th>
+                        <th scope="col" class = "type">TYPE</th>
+                        <th scope="col" class = "title">TITLE</th>
+                        <th scope="col" class = "writer">WRITER</th>
+                        <th scope="col" class = "date">DATE</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for list in lists %}
+                    <tr>
+                    <td>{{ list.id }}</td>
+                    <td>{{ list.get_type_display }}</td>
+                    <td class = title_t>{{ list.title }}</td>
+                    <td>{{ list.name }}</td>
+                    <td>{{ list.date|date:'Y/m/d H-i' }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        {% endblock %}
+

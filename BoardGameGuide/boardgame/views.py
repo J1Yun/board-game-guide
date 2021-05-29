@@ -1,9 +1,42 @@
 from django.db.models import Q
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from .models import *
 from django.contrib.auth.hashers import make_password, check_password
-
+from django.utils import timezone
 # Create your views here.
+def comu_detail(request, community_id):
+    
+    try:
+        
+        details = get_object_or_404(Community, pk = community_id)
+    
+    except Community.DoesNotExist:
+        raise Http404('해당 게시물을 찾을 수 없습니다.')
+    
+    return render(request, 'comu_detail.html', {'details':details})
+
+def comu_write(request):
+    return render(request, 'comu_write.html')
+
+def create(request):
+    if not request.session.get('user'):
+        return redirect('login')
+
+    
+    community = Community()
+    name = request.session.get('user')
+    user = User.objects.get(pk = name)
+    community.title = request.POST.get('title',False)
+    community.contents = request.POST.get('contents', False)
+    community.date = timezone.datetime.now()
+    community.name = user
+    community.save()
+    return redirect('/comu_list/' + str(community.id))
+
+
+def comu_list(request):
+    lists = Community.objects.all().order_by('-id')
+    return render(request, 'comu_list.html', {'lists' : lists})
 
 def logout(request):
     if request.session.get('user'):
