@@ -38,8 +38,13 @@ class Game(models.Model):
     def __str__(self):
         return self.name
 
+class Recommend(models.Model):
+    user_id = models.ForeignKey('User', on_delete=models.CASCADE)
+    game_id = models.ForeignKey('Game', on_delete=models.CASCADE)
+    
+
 class Community(models.Model):
-    writer_id = models.ForeignKey('Game', on_delete=models.CASCADE)
+    writer_id = models.ForeignKey('User', on_delete=models.CASCADE)
     TYPE_CHOICES = (
         ('r', '요청'),
         ('f', '자유'),
@@ -53,7 +58,7 @@ class Community(models.Model):
         return self.title
 
 class Comment(models.Model):
-    writer_id = models.ForeignKey('Game', on_delete=models.CASCADE)
+    writer_id = models.ForeignKey('User', on_delete=models.CASCADE)
     community_id = models.ForeignKey('Community', on_delete=models.CASCADE)
     contents = models.TextField()
     date = models.DateTimeField()
