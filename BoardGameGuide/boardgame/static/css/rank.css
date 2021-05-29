@@ -1,22 +1,19 @@
-.navbar{
-    background-color: #EDECED;
-
+.navbar {
+  background-color: #edeced;
 }
 .nav-link {
-    color:#52615C;
-    font-size: 15px;
-}
-
-.navbar-brand{
-  color:#52615C;
+  color: #52615c;
   font-size: 15px;
 }
 
-.title{
-    color:#52615C;
-    margin-top:30px;
-    margin-left:60px;
-    margin-right:50px;
+.navbar-brand {
+  color: #52615c;
+  font-size: 15px;
+}
 
-
+.title {
+  color: #52615c;
+  margin-top: 30px;
+  margin-left: 60px;
+  margin-right: 50px;
 }
