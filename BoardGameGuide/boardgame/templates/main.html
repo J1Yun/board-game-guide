@@ -2,9 +2,7 @@
 {% load static %}
 {% block content %}
 <link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
-                <div class="jumbotron">
-                    <h1 class="text-center">BoardGame Guide</h1>
-                </div>
+
             </header>
             <div class="container-md">
                 <form action="search" method="post">
@@ -80,9 +78,74 @@
               </form>
           {% if gameList %}
             {% for post in gameList %}
-              <h2>{{post.name}}</h2>
+            
             {% endfor %}
           {% endif %}
         </div>
+        <div class="container">
+          <div class="row">
+            <div class="col">
+              <div class="card">
+               
+                <img src="{% static 'img/charlie.jpg' %}" alt="" class="col-12">
+                <div class="card-body">
+                  <h5 class="card-title"><b>보드게임 이름 {{post.game_id.name}}</b></h5> <br>
+                  <p class="card-text">참가 인원 : {{post.game_id.l_participant}}명 ~ {{post.game_id.h_participant}}명</p>
+                  <p>대상 연령  {{post.game_id.age}}세 이상</p>
+                  <p>게임 시간  {{post.game_id.runtime}}시간</p>
+                  <p>게임 장르  {{post.game_id.get_genre_display}}</p>
+                  <p>추천 수  {{post.game_id.likes}}</p>
+                  
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="card">
+               
+                <img src="{% static 'img/charlie.jpg' %}" alt="" class="col-12">
+                <div class="card-body">
+                  <h5 class="card-title"><b>보드게임 이름 {{post.game_id.name}}</b></h5> <br>
+                  <p class="card-text">참가 인원 : {{post.game_id.l_participant}}명 ~ {{post.game_id.h_participant}}명</p>
+                  <p>대상 연령  {{post.game_id.age}}세 이상</p>
+                  <p>게임 시간  {{post.game_id.runtime}}시간</p>
+                  <p>게임 장르  {{post.game_id.get_genre_display}}</p>
+                  <p>추천 수  {{post.game_id.likes}}</p>
+                  
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="card">
+               
+                <img src="{% static 'img/charlie.jpg' %}" alt="" class="col-12">
+                <div class="card-body">
+                  <h5 class="card-title"><b>보드게임 이름 {{post.game_id.name}}</b></h5> <br>
+                  <p class="card-text">참가 인원 : {{post.game_id.l_participant}}명 ~ {{post.game_id.h_participant}}명</p>
+                  <p>대상 연령  {{post.game_id.age}}세 이상</p>
+                  <p>게임 시간  {{post.game_id.runtime}}시간</p>
+                  <p>게임 장르  {{post.game_id.get_genre_display}}</p>
+                  <p>추천 수  {{post.game_id.likes}}</p>
+                  
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="card">
+               
+                <img src="{% static 'img/charlie.jpg' %}" alt="" class="col-12">
+                <div class="card-body">
+                  <h5 class="card-title"><b>보드게임 이름 {{post.game_id.name}}</b></h5> <br>
+                  <p class="card-text">참가 인원 : {{post.game_id.l_participant}}명 ~ {{post.game_id.h_participant}}명</p>
+                  <p>대상 연령  {{post.game_id.age}}세 이상</p>
+                  <p>게임 시간  {{post.game_id.runtime}}시간</p>
+                  <p>게임 장르  {{post.game_id.get_genre_display}}</p>
+                  <p>추천 수  {{post.game_id.likes}}</p>
+                  
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
         
    {% endblock %}
