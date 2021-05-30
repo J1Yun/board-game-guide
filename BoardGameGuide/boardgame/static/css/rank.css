@@ -1,6 +1,12 @@
-.title {
-  color: #52615c;
-  margin-top: 30px;
-  margin-left: 60px;
-  margin-right: 50px;
+.title{
+  color: var(--font-color);
+  margin-top: 25px;
+}
+.card{
+  margin-top: 25px;
+}
+
+.top{
+  font-size: 30px;
+
 }
