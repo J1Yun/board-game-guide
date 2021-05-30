@@ -10,12 +10,27 @@
   text-decoration: none;
 }
 
-
-
-.jumbotron {
-  background-color: var(--logo-background-color);
-  color: var(--font-color);
-  padding: 50px 10px;
-  margin-bottom: 0px;
+.card-text{
+  margin-left: 10px;
+  margin-top: 10px;
 }
+
+.member{
+  margin-top: 25px;
+}
+
+.best{
+  margin-top: 25px;
+}
+
+.comment{
+  margin-top: 25px;
+}
+
+.title{
+  margin-bottom: 25px;
+}
+
+
+
 
