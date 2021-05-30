@@ -31,3 +31,10 @@
     font-size: 15px;
   }
   
+  .jumbotron {
+    background-color: var(--logo-background-color);
+    color: var(--font-color);
+    padding: 50px 10px;
+    margin-bottom: 0px;
+  }
+  
