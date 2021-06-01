@@ -1,0 +1,30 @@
+.container{
+    text-align:center;
+    width:800px;
+}
+
+
+.input-group-text{
+    width:70px;
+    height: 40px ; display: table-cell; vertical-align: middle;
+    background-color: #5c6461;
+    color:white;
+
+}
+
+.btn-dark {
+    background-color: #5c6461;
+    border-color: #5c6461;
+    color: white; }
+.btn-dark:hover,
+.btn-dark:focus {
+    border-color: #5c6461;
+    background-color: #5c6461;
+    color: white; }
+.btn-dark:active,
+.btn-dark:visited,
+.btn-dark:active:focus,
+.btn-dark:active:hover {
+    border-color: #5c6461;
+    background-color: #5c6461;
+    color: white; }
