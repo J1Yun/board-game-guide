@@ -1,39 +1,46 @@
-{% extends 'base.html' %}
-{% load static %}
-{% block content %}
-<link rel="stylesheet" type="text/css" href="{% static 'css/search.css' %}">
-                <div class="jumbotron">
-                    <h1 class="text-center">BoardGame Guide</h1>
-                </div>
-            </header>
-            <div class="container-md">
-                <form action="search" method="post">
-                  {% csrf_token %}
-                  <div class="search-box" style="margin: 30px">
-                  <div class="row justify-content-md-center">
-                    <div class="col col-lg-5" style="padding: 0;">
-                      <input class="form-control me-2" name="search_value" type="search" placeholder="Search" aria-label="Search" value="{{word}}">
-                    </div>
-                    <div class="col col-lg-1">
-                      <button class="btn btn-outline-success w-100 h-100" type="submit" >Search</button>
-                    </div>
-                  </div>
-                  </div>
-                </form>
-            {% if word %}
-              <h1>"{{word}}"의 검색결과 입니다.</h1>
-              <hr>
-            {% if gameList %}
-              {% for post in gameList %}
-                <h2>{{post.name}}</h2>
-              {% endfor %}
-            {% else %}
-              <h2>검색 결과가 없습니다.</h2>
-            {% endif %}
-            {% else %}
-              <h1>검색어를 입력하세요.</h1>
-              <hr>
-            {% endif %}
+{% extends 'base.html' %} {% load static %} {% block content %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/search.css' %}" />
+
+<div class="container-md">
+  <form action="search" method="post">
+    {% csrf_token %}
+    <div class="search-box" style="margin: 30px">
+      <div class="row justify-content-md-center">
+        <div class="col col-lg-5" style="padding: 0">
+          <input class="form-control me-2" name="search_value" type="search" placeholder="Search" aria-label="Search" value="{{word}}" />
         </div>
+        <div class="col col-lg-1">
+          <button class="btn btn-outline-success w-100 h-100" type="submit">Search</button>
+        </div>
+      </div>
+    </div>
+  </form>
+  {% if word %}
+  <h1>"{{word}}"의 검색결과 입니다.</h1>
+  <hr />
+  {% if gameList %} {% for post in gameList %}
+  <div class="card" style="width: 70%; margin: 5px auto">
+    <img src="" alt="" class="col-12" />
+    <div class="card-body">
+      <h5 class="card-title"><b>{{post.name}}</b></h5>
+      <br />
+      <p class="card-text">
+        참가 인원 : <span class="game-lparticipant">{{post.l_participant}}</span>-<span class="game-hparticipant"
+          >{{post.h_participant}}</span
+        >명
+      </p>
+      <p>대상 연령 <span class="game-age">{{post.age}}</span>세 이상</p>
+      <p>게임 시간 <span class="game-runtime">{{post.runtime}}</span>시간</p>
+      <p>게임 장르 <span class="game-genre" style="display: none">{{post.genre}}</span>{{post.get_genre_display}}</p>
+      <p>추천 수 {{post.likes}}</p>
+    </div>
+  </div>
+  {% endfor %} {% else %}
+  <h2>검색 결과가 없습니다.</h2>
+  {% endif %} {% else %}
+  <h1>검색어를 입력하세요.</h1>
+  <hr />
+  {% endif %}
+</div>
 
 {% endblock %}
