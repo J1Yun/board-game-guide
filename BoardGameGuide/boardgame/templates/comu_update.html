@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/comu_update.css' %}">
+    <form method = "POST">
+        {% csrf_token %}
+        
+        <input type = "text" value = "{{ community.title }}" name = "title">
+        <br>
+        <textarea cols = "40" rows = "10"name = "contents"> {{community.contents}} </textarea>
+        <br>
+        <br>
+        <input type = "submit" value = "update">
+    </form>
+ 
+
+{% endblock %}

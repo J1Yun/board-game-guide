@@ -4,6 +4,24 @@ from .models import *
 from django.contrib.auth.hashers import make_password, check_password
 from django.utils import timezone
 # Create your views here.
+
+
+def comu_update(request, community_id):
+    community = get_object_or_404(Community, pk = community_id)
+
+    if request.method == "POST":
+        community.title = request.POST['title']
+        community.contents = request.POST['contents']
+        community.date = timezone.datetime.now()
+       
+        community.save()
+        return redirect('/comu_list/' + str(community.id))
+
+    else:
+        return render(request, 'comu_update.html', {'community' : community})
+
+
+
 def comu_detail(request, community_id):
     
     try:
@@ -35,7 +53,7 @@ def create(request):
 
 
 def comu_list(request):
-    lists = Community.objects.all().order_by('-id')
+    lists = Community.objects.all().order_by('date')
     return render(request, 'comu_list.html', {'lists' : lists})
 
 def logout(request):
