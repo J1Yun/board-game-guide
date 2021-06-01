@@ -3,8 +3,16 @@ from django.shortcuts import render, redirect, get_object_or_404
 from .models import *
 from django.contrib.auth.hashers import make_password, check_password
 from django.utils import timezone
+from django.core.paginator import Paginator
+from django.contrib import auth
 # Create your views here.
 
+
+
+def comu_delete(request, community_id):
+    community = get_object_or_404(Community, pk = community_id)
+    community.delete()
+    return redirect('comu_list')
 
 def comu_update(request, community_id):
     community = get_object_or_404(Community, pk = community_id)
@@ -42,23 +50,30 @@ def create(request):
 
     
     community = Community()
-    name = request.session.get('user')
-    user = User.objects.get(pk = name)
+    writer_id = request.session.get('user')
+    user = User.objects.get(pk = writer_id)
+    community.type = request.POST.get('type')
     community.title = request.POST.get('title',False)
     community.contents = request.POST.get('contents', False)
     community.date = timezone.datetime.now()
-    community.name = user
+    community.writer_id = user
     community.save()
     return redirect('/comu_list/' + str(community.id))
 
 
 def comu_list(request):
-    lists = Community.objects.all().order_by('date')
-    return render(request, 'comu_list.html', {'lists' : lists})
+    lists = Community.objects.all().order_by('-date') 
+    page_number = request.GET.get('page', '1')
+    paginator = Paginator(lists, 8)
+    page_obj = paginator.get_page(page_number)
+    return render(request, 'comu_list.html', context = {'posts': page_obj})
+
 
 def logout(request):
+    
     if request.session.get('user'):
         del(request.session['user'])
+        
     return redirect('main')
     
 def signup_done(request):

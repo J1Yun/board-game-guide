@@ -19,8 +19,8 @@ from django.urls import path
 import boardgame.views
 
 urlpatterns = [
+    path('<int:community_id>/comu_delete/', boardgame.views.comu_delete, name = 'comu_delete'),
     path('comu_list/<int:community_id>/comu_update/', boardgame.views.comu_update, name = 'comu_update'),
-
     path('create/', boardgame.views.create, name = "create"),
     path('comu_list/<int:community_id>', boardgame.views.comu_detail, name = 'comu_detail'),
     path('comu_write/', boardgame.views.comu_write, name = 'comu_write'),
