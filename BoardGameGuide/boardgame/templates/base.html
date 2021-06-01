@@ -15,7 +15,7 @@
                     <span class="navbar-toggler-icon"></span>
                   </button>
                   <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
-                    <ul class="navbar-nav">
+                    <ul class="navbar-nav navbar-left">
                       <li class="nav-item">
                         <a href="{% url 'main' %}" class="nav-link">Home</a>
                       </li>
@@ -28,15 +28,24 @@
                       <li class="nav-item">
                         <a href="{% url 'mypage' %}" class="nav-link">마이페이지</a>
                       </li>
-                      <li class="nav-item">
-                        <a href="{% url 'login' %}" class="nav-link">로그인</a>
-                      </li>
-                      <li class="nav-item">
-                        <a href="{% url 'signup' %}" class="nav-link">회원가입</a>
-                      </li>
+                      </ul>
+                  </div>
+                  <div>
+                      <ul class="navbar-nav navbar-right">
+                      {% if request.session.user %}
+                          <li class="nav-item"><a href="{% url 'logout' %}" class="nav-link">{{ request.session.user }}님 환영합니다. [로그아웃] </a></li>
+                      {% else %}
+                          
+                          <li class="nav-item"><a href="{% url 'login' %}" class="nav-link">로그인</a></li>
+                          
+                          <li class="nav-item"><a href="{% url 'signup' %}" class="nav-link">회원가입</a></li>
+                      {% endif %}
+                  
+                      
                     </ul>
                   </div>
                 </div>
+                
               </nav>
               <div class="jumbotron">
                 <h1 class="text-center">BoardGame Guide</h1>
