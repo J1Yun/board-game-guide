@@ -1,7 +1,9 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block content %}
-<link rel="stylesheet" type="text/css" href="{% static 'css/comu_list.css' %}">
+        
+        <link rel="stylesheet" type="text/css" href="{% static 'css/comu_list.css' %}">
+        
         <div class = "container-md">        
             <table class="table">
                 <thead class = "tablehead">
@@ -14,17 +16,79 @@
                     </tr>
                 </thead>
                 <tbody>
-                    {% for list in lists %}
+                    {% for list in posts %}
                     <tr>
                     <td>{{ list.id }}</td>
                     <td>{{ list.get_type_display }}</td>
-                    <td class = title_t>{{ list.title }}</td>
-                    <td>{{ list.name }}</td>
+                
+                    <td class = title_t>
+                        <a class = 'titles' href = "/comu_list/{{ list.id }}">
+                            <span>{{ list.title }}</span>
+                        </a>
+                    </td>
+                    <td>{{ list.writer_id }}</td>
                     <td>{{ list.date|date:'Y/m/d H-i' }}</td>
                     </tr>
                     {% endfor %}
                 </tbody>
             </table>
         </div>
-        {% endblock %}
+        
+        <div class = 'page'>
+            <nav aria-label="Page navigation example">
+                <ul class="pagination justify-content-center">
+                {% if posts.has_previous %}
+                    <li class="page-item">
+                    <a class="page-link" href="?page={{ posts.previous_page_number }}">Previous</a>
+                  </li>
+                {% else %}
+                    <li class="page-item disabled">
+                    <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Previous</a>
+                  </li>
+                {% endif %}
+        
+                {% if posts.number|add:'-4' > 1 %}
+                    <li class="page-item"><a class="page-link" href="?page={{ posts.number|add:'-5' }}">&hellip;</a></li>
+                {% endif %}
+        
+                {% for i in posts.paginator.page_range %}
+                    {% if posts.number == i %}
+                        <li class="page-item active" aria-current="page">
+                      <span class="page-link">
+                        {{ i }}
+                        
+                      </span>
+                    </li>
+                    {% elif i > posts.number|add:'-5' and i < posts.number|add:'5' %}
+                         <li class="page-item"><a class="page-link" href="?page={{ i }}">{{ i }}</a></li>
+                    {% endif %}
+                {% endfor %}
+        
+                {% if posts.paginator.num_pages > posts.number|add:'4' %}
+                   <li class="page-item"><a class="page-link" href="?page={{ posts.number|add:'5' }}">&hellip;</a></li>
+                {% endif %}
+        
+                {% if posts.has_next %}
+                    <li class="page-item">
+                    <a class="page-link" href="?page={{ posts.next_page_number }}">Next</a>
+                  </li>
+                {% else %}
+                    <li class="page-item disabled">
+                    <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Next</a>
+                  </li>
+                {% endif %}
+              </ul>
+            </nav>
+            <div class = "d-grid gap-2 col-6 mx-auto">
+              <a href="{% url 'comu_write' %}" class="btn btn-md btn-outline-secondary">작성</a>
+            </div>
+            <br>
+            <br>
+        </div>
+        
+        
+
+        
+
+{% endblock %}
 
