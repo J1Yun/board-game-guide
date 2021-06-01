@@ -5,13 +5,33 @@
 <div class = "container">
     <form action = "{% url 'create' %}" method = "POST">
         {% csrf_token %}
-        <h4>제목: </h4>
-        <input type = 'text' name = 'title'>
-        <br><br>
-        <h4>본문: </h4>
-        <textarea cols = "40" rows = 10 name = 'contents'></textarea>
-        <br><br>
+        <br>
+        <br>
+        <div class="input-group mb-3">
+            <label class="input-group-text" for="inputGroupSelect01">말머리</label>
+            <select class="form-select" id="inputGroupSelect01" name = 'type'>
+              <option selected>선택</option>
+              <option value="r">요청</option>
+              <option value="f">자유</option>
+              
+            </select>
+        </div>
+        
+        <div class="input-group mb-3">
+            <span class="input-group-text" id="inputGroup-sizing-default">제목</span>
+            <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" name ='title'>
+        </div>
+        <hr>
+        <div class="mb-3">
+        
+            <textarea class="form-control" id="exampleFormControlTextarea1" rows="10" cols = '40' name = 'contents'></textarea>
+        </div>
+        
+        
+        <br>
         <input class = "btn btn-dark" type = 'submit' value = "제출하기">
+        <br>
+        <br>
     </form>
 </div>
 
