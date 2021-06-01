@@ -1,0 +1,51 @@
+.container{
+    text-align:center;
+    width:1000px;
+}
+
+.name{
+    font-size: 25px;
+}
+
+.type{
+    font-size: 16px;
+}
+
+.title{
+    font-size: 32px;
+}
+
+.author{
+    font-size: 17px;
+}
+
+.what{
+    font-size: 27px;
+    text-align:left;
+    padding-right:80px;
+    padding-left:80px;
+}
+
+.date{
+    font-size: 18px;
+}
+
+
+
+.btn-outline-secondary {
+    background-color: #5c6461;
+    border-color: #5c6461;
+    color: white; }
+.btn-outline-secondary:hover,
+.btn-outline-secondary:focus {
+    border-color: #5c6461;
+    background-color: #5c6461;
+    color: white; }
+.btn-outline-secondary:active,
+.btn-outline-secondary:visited,
+.btn-outline-secondary:active:focus,
+.btn-outline-secondary:active:hover {
+    border-color: #5c6461;
+    background-color: #5c6461;
+    color: white; }
+
