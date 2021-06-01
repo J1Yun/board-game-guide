@@ -1,151 +1,143 @@
-{% extends 'base.html' %}
-{% load static %}
-{% block content %}
-<link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
+{% extends 'base.html' %} {% load static %} {% block content %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}" />
 
-            </header>
-            <div class="container-md">
-                <form action="search" method="post">
-                  {% csrf_token %}
-                  <div class="search-box" style="margin: 30px">
-                  <div class="row justify-content-md-center">
-                    <div class="col col-lg-5" style="padding: 0;">
-                      <input class="form-control me-2" name="search_value" type="search" placeholder="Search" aria-label="Search">
-                    </div>
-                    <div class="col col-lg-1">
-                      <button class="btn btn-outline-success w-100 h-100" type="submit" >Search</button>
-                    </div>
-                  </div>
-                  </div>
-                </form>
-                <form action="." method="post">
-                <div class="container">
-                  <div class="row justify-content-md-center">
-                    <div class="col col-lg-3">
-                      <div class="form-floating">
-                        <select class="form-select" id="floatingSelect" aria-label="게임인원수" style="width: 100%">
-                          <option value="*" selected>전체</option>
-                          <option  value="2">2명</option>
-                          <option value="3">3명</option>
-                          <option value="4">4명</option>
-                          <option value="5">5명</option>
-                          <option value="6">6명 이상</option>
-                        </select>
-                        <label for="floatingSelect">게임인원수</label>
-                      </div>
-                    </div>
-                    <div class="col col-lg-3">
-                      <div class="form-floating">
-                        <select class="form-select" id="floatingSelect" aria-label="게임유형">
-                          <option value="*" selected>전체</option>
-                          <option value="1">전략게임</option>
-                          <option value="2">테마게임</option>
-                          <option value="3">가족게임</option>```
-                          <option value="4">어린이게임</option>
-                          <option value="5">파티게임</option>
-                          <option value="6">워게임</option>
-                          <option value="7">기타</option>
-                        </select>
-                        <label for="floatingSelect">게임 유형</label>
-                      </div>
-                    </div>
-                    <div class="col col-lg-3">
-                      <div class="form-floating">
-                        <select class="form-select" id="floatingSelect" aria-label="게임시간" >
-                          <option value="*" selected>전체</option>
-                          <option value="1">0-30분</option>
-                          <option value="2">30-60분</option>
-                          <option value="3">60-120분</option>
-                          <option value="4">120분 초과</option>
-                        </select>
-                        <label for="floatingSelect">게임 시간</label>
-                      </div>
-                    </div>
-                    <div class="col col-lg-3">
-                      <div class="form-floating">
-                        <select class="form-select" id="floatingSelect" aria-label="대상연령">
-                          <option value="*" selected>전체</option>
-                          <option value="5">만 5세 이상</option>
-                          <option value="7">만 7세 이상</option>
-                          <option value="10">만 10세 이상</option>
-                          <option value="14">만 14세 이상</option>
-                        </select>
-                        <label for="floatingSelect">대상 연령</label>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </form>
-          {% if gameList %}
-            {% for post in gameList %}
-            
-            {% endfor %}
-          {% endif %}
+<div class="container-md">
+  <form action="search" method="post">
+    {% csrf_token %}
+    <div class="search-box" style="margin: 30px">
+      <div class="row justify-content-md-center">
+        <div class="col col-lg-5" style="padding: 0">
+          <input class="form-control me-2" name="search_value" type="search" placeholder="Search" aria-label="Search" />
         </div>
-        <div class="container">
-          <div class="row">
-            <div class="col">
-              <div class="card">
-               
-                <img src="{% static 'img/charlie.jpg' %}" alt="" class="col-12">
-                <div class="card-body">
-                  <h5 class="card-title"><b>보드게임 이름 {{post.game_id.name}}</b></h5> <br>
-                  <p class="card-text">참가 인원 : {{post.game_id.l_participant}}명 ~ {{post.game_id.h_participant}}명</p>
-                  <p>대상 연령  {{post.game_id.age}}세 이상</p>
-                  <p>게임 시간  {{post.game_id.runtime}}시간</p>
-                  <p>게임 장르  {{post.game_id.get_genre_display}}</p>
-                  <p>추천 수  {{post.game_id.likes}}</p>
-                  
-                </div>
-              </div>
-            </div>
-            <div class="col">
-              <div class="card">
-               
-                <img src="{% static 'img/charlie.jpg' %}" alt="" class="col-12">
-                <div class="card-body">
-                  <h5 class="card-title"><b>보드게임 이름 {{post.game_id.name}}</b></h5> <br>
-                  <p class="card-text">참가 인원 : {{post.game_id.l_participant}}명 ~ {{post.game_id.h_participant}}명</p>
-                  <p>대상 연령  {{post.game_id.age}}세 이상</p>
-                  <p>게임 시간  {{post.game_id.runtime}}시간</p>
-                  <p>게임 장르  {{post.game_id.get_genre_display}}</p>
-                  <p>추천 수  {{post.game_id.likes}}</p>
-                  
-                </div>
-              </div>
-            </div>
-            <div class="col">
-              <div class="card">
-               
-                <img src="{% static 'img/charlie.jpg' %}" alt="" class="col-12">
-                <div class="card-body">
-                  <h5 class="card-title"><b>보드게임 이름 {{post.game_id.name}}</b></h5> <br>
-                  <p class="card-text">참가 인원 : {{post.game_id.l_participant}}명 ~ {{post.game_id.h_participant}}명</p>
-                  <p>대상 연령  {{post.game_id.age}}세 이상</p>
-                  <p>게임 시간  {{post.game_id.runtime}}시간</p>
-                  <p>게임 장르  {{post.game_id.get_genre_display}}</p>
-                  <p>추천 수  {{post.game_id.likes}}</p>
-                  
-                </div>
-              </div>
-            </div>
-            <div class="col">
-              <div class="card">
-               
-                <img src="{% static 'img/charlie.jpg' %}" alt="" class="col-12">
-                <div class="card-body">
-                  <h5 class="card-title"><b>보드게임 이름 {{post.game_id.name}}</b></h5> <br>
-                  <p class="card-text">참가 인원 : {{post.game_id.l_participant}}명 ~ {{post.game_id.h_participant}}명</p>
-                  <p>대상 연령  {{post.game_id.age}}세 이상</p>
-                  <p>게임 시간  {{post.game_id.runtime}}시간</p>
-                  <p>게임 장르  {{post.game_id.get_genre_display}}</p>
-                  <p>추천 수  {{post.game_id.likes}}</p>
-                  
-                </div>
-              </div>
-            </div>
-          </div>
+        <div class="col col-lg-1">
+          <button class="btn btn-outline-success w-100 h-100" type="submit">Search</button>
         </div>
-        
-        
-   {% endblock %}
+      </div>
+    </div>
+  </form>
+  <form action="." method="post">
+    <div class="row justify-content-md-center" style="margin-bottom: 20px">
+      <div class="col col-lg-3">
+        <div class="form-floating">
+          <select class="form-select" aria-label="게임인원수" id="participant" onchange="gameFilter()">
+            <option value="*" selected>전체</option>
+            <option value="2">2명</option>
+            <option value="3">3명</option>
+            <option value="4">4명</option>
+            <option value="5">5명</option>
+            <option value="6">6명 이상</option>
+          </select>
+          <label for="participant">게임인원수</label>
+        </div>
+      </div>
+      <div class="col col-lg-3">
+        <div class="form-floating">
+          <select class="form-select" aria-label="게임유형" id="genre" onchange="gameFilter()">
+            <option value="*" selected>전체</option>
+            <option value="1">전략게임</option>
+            <option value="2">테마게임</option>
+            <option value="3">가족게임</option>
+            ```
+            <option value="4">어린이게임</option>
+            <option value="5">파티게임</option>
+            <option value="6">워게임</option>
+            <option value="7">기타</option>
+          </select>
+          <label for="genre">게임 유형</label>
+        </div>
+      </div>
+      <div class="col col-lg-3">
+        <div class="form-floating">
+          <select class="form-select" aria-label="게임시간" id="runtime" onchange="gameFilter()">
+            <option value="*" selected>전체</option>
+            <option value="1">0-30분</option>
+            <option value="2">30-60분</option>
+            <option value="3">60-120분</option>
+            <option value="4">120분 초과</option>
+          </select>
+          <label for="runtime">게임 시간</label>
+        </div>
+      </div>
+      <div class="col col-lg-3">
+        <div class="form-floating">
+          <select class="form-select" aria-label="대상연령" id="age" onchange="gameFilter()">
+            <option value="*" selected>전체</option>
+            <option value="5">만 5세 이상</option>
+            <option value="7">만 7세 이상</option>
+            <option value="10">만 10세 이상</option>
+            <option value="14">만 14세 이상</option>
+          </select>
+          <label for="age">대상 연령</label>
+        </div>
+      </div>
+    </div>
+  </form>
+  <div class="row">
+    {% if gameList %} {% for post in gameList %}
+    <div class="game">
+      <div class="card" style="width: 70%; margin: 5px auto">
+        <img src="" alt="" class="col-12" />
+        <div class="card-body">
+          <h5 class="card-title"><b>{{post.name}}</b></h5>
+          <br />
+          <p class="card-text">
+            참가 인원 : <span class="game-lparticipant">{{post.l_participant}}</span>-<span class="game-hparticipant"
+              >{{post.h_participant}}</span
+            >명
+          </p>
+          <p>대상 연령 <span class="game-age">{{post.age}}</span>세 이상</p>
+          <p>게임 시간 <span class="game-runtime">{{post.runtime}}</span>시간</p>
+          <p>게임 장르 <span class="game-genre" style="display: none">{{post.genre}}</span>{{post.get_genre_display}}</p>
+          <p>추천 수 {{post.likes}}</p>
+        </div>
+      </div>
+    </div>
+
+    {% endfor %} {% endif %}
+  </div>
+</div>
+
+<script>
+  function gameFilter() {
+    var participant = document.getElementById('participant');
+    participant = participant.options[participant.selectedIndex].value;
+    var genre = document.getElementById('genre');
+    genre = genre.options[genre.selectedIndex].value;
+    var runtime = document.getElementById('runtime');
+    runtime = runtime.options[runtime.selectedIndex].value;
+    var age = document.getElementById('age');
+    age = age.options[age.selectedIndex].value;
+    var games = document.getElementsByClassName('game');
+    for (var i = 0; i < games.length; i++) {
+      var lp = Number(games[i].getElementsByClassName('game-lparticipant')[0].innerHTML);
+      var hp = Number(games[i].getElementsByClassName('game-hparticipant')[0].innerHTML);
+      var g = games[i].getElementsByClassName('game-genre')[0].innerHTML;
+      var r = Number(games[i].getElementsByClassName('game-runtime')[0].innerHTML);
+      var a = Number(games[i].getElementsByClassName('game-age')[0].innerHTML);
+      if (participant === '*' || (lp <= Number(participant) && Number(participant) <= hp)) {
+        if (genre === '*' || genre === g) {
+          if (
+            runtime === '*' ||
+            (runtime === '1' && r <= 30) ||
+            (runtime === '2' && 30 < r && r <= 60) ||
+            (runtime === '3' && 60 < r && r <= 120) ||
+            (runtime === '4' && 120 < r)
+          ) {
+            if (age === '*' || Number(age) <= a) {
+              games[i].style.display = '';
+            } else {
+              games[i].style.display = 'none';
+            }
+          } else {
+            games[i].style.display = 'none';
+          }
+        } else {
+          games[i].style.display = 'none';
+        }
+      } else {
+        games[i].style.display = 'none';
+      }
+    }
+  }
+</script>
+{% endblock %}
