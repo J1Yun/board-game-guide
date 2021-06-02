@@ -1,0 +1,46 @@
+:root {
+    --body-background-color: #ffffff;
+    --font-color: #5c6461;
+    --logo-background-color: #ccd6d7;
+  }
+  
+  * {
+    margin: 0px;
+    padding: 0px;
+    text-decoration: none;
+  }
+
+  .body {
+    background-color: var(--logo-background-color);
+  }
+
+  .comment{
+    position:absolute;
+	width:500px;
+	height:300px;
+	padding: 30px, 20px;
+	background-color:#EDECED;
+	text-align:center;
+	top:50%;
+	left:50%;
+	transform: translate(-50%,-50%);
+	border-radius: 15px;
+  }
+
+  .btn{
+    background-color: var(--font-color);
+    color: var(--body-background-color);
+    width: 30%;
+    height: 15%;
+    margin-top: 20%;
+    font-size: large;
+    font-weight: bold;
+    margin-left: 20px;
+    margin-right: 20px;
+    border:none;
+
+  }
+
+  .message{
+      margin-top: 15%;
+  }

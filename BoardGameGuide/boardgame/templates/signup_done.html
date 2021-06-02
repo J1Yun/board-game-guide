@@ -1,11 +1,16 @@
 <!DOCTYPE html>
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/signup_done.css' %}" />
 <html>
     <head>
 
     </head>
-    <body>
-        <h1>{{ message }}</h1>
-        <a href = "{% url 'login' %}"><button type = "button">Go to login</button></a>
-        <a href = "{% url 'main' %}"><button type = "button">Home</button></a>
+    <body class="body" width="100%" height="100%">
+        <div class="comment">
+        <h1 class="message">{{ message }}</h1>
+        <a href = "{% url 'login' %}"><button type = "button" class="btn">Go to login</button></a>
+        <a href = "{% url 'main' %}"><button type = "button" class="btn">Home</button></a>
+        
+    </div>
     </body>
 </html>
