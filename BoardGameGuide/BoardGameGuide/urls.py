@@ -19,6 +19,7 @@ from django.urls import path
 import boardgame.views
 
 urlpatterns = [
+    path('comu_list/<int:details_pk>/comment_write', boardgame.views.comment_write, name = 'comment_write'),
     path('<int:community_id>/comu_delete/', boardgame.views.comu_delete, name = 'comu_delete'),
     path('comu_list/<int:community_id>/comu_update/', boardgame.views.comu_update, name = 'comu_update'),
     path('create/', boardgame.views.create, name = "create"),
