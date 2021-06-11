@@ -21,7 +21,7 @@
 
 .what{
     font-size: 27px;
-    text-align:left;
+    
     padding-right:80px;
     padding-left:80px;
 }
@@ -49,3 +49,18 @@
     background-color: #5c6461;
     color: white; }
 
+.comment{
+    align-items:left;
+}
+
+.card-text{
+    font-size:18px;
+}
+
+.writer{
+    font-size:15px;
+}
+
+.date2{
+    font-size:13px;
+}
