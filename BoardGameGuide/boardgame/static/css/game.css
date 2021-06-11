@@ -1,49 +1,31 @@
-
-:root{
- 
-  --background-color: yellow;
-  --background-color2: white;
-  --background-color3: green;
-
+:root {
+  --body-background-color: #ffffff;
+  --font-color: #5c6461;
+  --logo-background-color: #ccd6d7;
 }
 
 h1{
   margin:0px;
 }
-.navbar{
-  background-color: #EDECED;
 
-}
-.nav-link {
-  color:#52615C;
-  font-size: 15px;
-}
-
-.navbar-brand{
-color:#52615C;
-font-size: 15px;
-}
 .title{
   color:#52615C;
   margin-top:30px;
-  margin-left:60px;
-  margin-right:50px;
+
 
 
 }
 
 .rule{
-  background-color: var(--background-color);
-  margin-left:60px;
-  margin-right:60px;
+  text-align: center;
+  margin-top: 20px;
 
 }
 
 .ruleselect{
-  background-color: var(--background-color2);
+  
   text-align: center;
-  margin-left:100px;
-  margin-right:100px;
+
 
 }
 
@@ -56,7 +38,7 @@ font-size: 15px;
   cursor: pointer;
   height: 40px;
   width:300px;
-  border: 1px solid #EB9887;
+  border: 1px solid var(--font-color);
   line-height: 24px;
   text-align: center;
   font-weight:bold;
@@ -64,17 +46,16 @@ font-size: 15px;
 
   padding-top: 5px;
 
-  background-color: #fff;
-  color: #EB9887;
+  background-color: var(--body-background-color);
+  color:var(--font-color)
 }
 
 .ruleselect input[type = radio]:checked+label{
-  background-color: #EB9887;
-  color: #fff;
+  background-color: var(--font-color);
+  color: var(--body-background-color);
 }
 
 .intro{
-  background-color: var(--background-color);
-  margin-left:60px;
-  margin-right:60px;
+  text-align: center;
+  margin-bottom: 20px;
 }
