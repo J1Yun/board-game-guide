@@ -6,31 +6,33 @@
   </div>
   <hr />
   <div class="ranking">
-    <div class="top-ranking" style="float: left">
+    <div class="top-ranking">
       {% for post in gameList %}
-      <div class="top"><b>{{forloop.counter}}위: {{post.name}} </b></div>
-      {% endfor %}
-    </div>
-    <div class="ranks" style="float: left">
-      <div class="card mb-3" style="max-width: 800px;">
-        <div class="row g-0">
-          <div class="col-md-4">
-            <img src="" alt="" class="col-12">
+      <div class="card" style="width: 80%; margin: 5px auto">
+        <div class="card-body">
+          <div style="float: left; width: 13%; position: absolute; top: 45%; text-align: center">
+            <h4 style="color: #198754"><b>{{forloop.counter}}위</b></h4>
           </div>
-          <div class="col-md-8">
-            <div class="card-body">
-              <h5 class="card-title"><b>보드게임 이름 {{post.game_id.name}}</b></h5><br>
-              <p class="card-text">참가 인원 : {{post.game_id.l_participant}}명 ~ {{post.game_id.h_participant}}명</p>
-              <p>대상 연령  {{post.game_id.age}}세 이상</p>
-              <p>게임 시간  {{post.game_id.runtime}}시간</p>
-              <p>게임 장르  {{post.game_id.get_genre_display}}</p>
-              <p>추천 수  {{post.game_id.likes}}</p>
-            </div>
+          <div style="float: right; width: 85%; border-left: 1px solid grey; padding-left: 20px">
+            <h5 class="card-title"><b>{{post.name}}</b></h5>
+            <br />
+            <p class="card-text">
+              참가 인원 : <span class="game-lparticipant">{{post.l_participant}}</span>-<span class="game-hparticipant"
+                >{{post.h_participant}}</span
+              >명
+            </p>
+            <p>대상 연령 <span class="game-age">{{post.age}}</span>세 이상</p>
+            <p>게임 시간 <span class="game-runtime">{{post.runtime}}</span>시간</p>
+            <p>게임 장르 <span class="game-genre" style="display: none">{{post.genre}}</span>{{post.get_genre_display}}</p>
+            <p>추천 수 {{post.likes}}</p>
           </div>
         </div>
       </div>
+      {% endfor %}
     </div>
   </div>
 </div>
+
+<style></style>
 
 {% endblock %}
