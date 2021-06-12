@@ -28,6 +28,11 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+LOGOUT_REDIRECT_URL ='main'
+LOGIN_REDIRECT_URL = 'main'
+LOGIN_URL = "/login"
+SESSION_EXPIRE_AT_BROWSER_CLOSE = True
+
 
 # Application definition
 
@@ -107,13 +112,14 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Asia/Seoul'
 
-USE_I18N = True
+#USE_I18N = True
 
-USE_L10N = True
+#USE_L10N = True
 
-USE_TZ = True
+#USE_TZ = True
+
 
 
 # Static files (CSS, JavaScript, Images)

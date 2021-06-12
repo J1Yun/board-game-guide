@@ -58,8 +58,8 @@ class Community(models.Model):
         return self.title
 
 class Comment(models.Model):
-    writer_id = models.ForeignKey('User', on_delete=models.CASCADE)
-    community_id = models.ForeignKey('Community', on_delete=models.CASCADE)
+    writer = models.ForeignKey('User', on_delete=models.CASCADE)
+    community = models.ForeignKey('Community', on_delete=models.CASCADE, related_name = 'comments')
     contents = models.TextField()
     date = models.DateTimeField()
 

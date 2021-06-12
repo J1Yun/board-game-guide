@@ -4,9 +4,31 @@ from .models import *
 from django.contrib.auth.hashers import make_password, check_password
 from django.utils import timezone
 from django.core.paginator import Paginator
-from django.contrib import auth
+from django.contrib import auth, messages
+from django.http import HttpResponse, HttpResponseRedirect
+from django.contrib.auth.decorators import login_required
+from django.conf import settings
+from django.urls import reverse_lazy
+
 # Create your views here.
 
+
+def comment_write(request, details_pk):
+    if request.method == 'POST':
+        community = get_object_or_404(Community, pk=details_pk)
+        contents =request.POST.get('contents')
+        date = timezone.now()
+        
+        
+        writer = User.objects.get(user_id = community.writer_id)
+        
+
+        if not contents:
+            messages.info(request, 'You dont write anything ...')
+            return redirect('/comu_list/' + str(community.id))
+        
+        Comment.objects.create(community=community, writer=writer, contents=contents, date=date)
+        return redirect('/comu_list/' + str(community.id))
 
 
 def comu_delete(request, community_id):
@@ -34,8 +56,11 @@ def comu_detail(request, community_id):
     
     try:
         
-        details = get_object_or_404(Community, pk = community_id)
-    
+        details = get_object_or_404(Community, pk=community_id)
+
+       
+       
+            
     except Community.DoesNotExist:
         raise Http404('해당 게시물을 찾을 수 없습니다.')
     
@@ -114,6 +139,13 @@ def login(request):
             res_data['error'] = '비밀번호가 틀렸습니다.'
     
             return render(request, 'login.html', res_data)
+
+    if user is not None:
+        self.request.session['user_id'] = user_id
+        login(self.request, user)
+        remember_session = self.request.POST.get('remember_session', False)
+        if remember_session:
+            settings.SESSION_EXPIRE_AT_BROWSER_CLOSE = False
     return redirect("main")
 
 def signup(request):

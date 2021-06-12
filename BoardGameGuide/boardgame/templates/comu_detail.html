@@ -22,6 +22,43 @@
         </div>
         <div class = 'container'>
             <hr>
+            {% for comment in details.comments.all %}
+            <div class = "comment">
+                <br>
+                <div class="card">
+                    <div class="card-header" style = "padding-left:80px; padding-right:80px;">
+                        <strong class = 'writer' style = "float:left">작성자 : {{ comment.writer }}</strong>
+                        <div class = "date2" style = "float:right">{{ comment.date|date:'Y/m/d H-i' }}</div>
+                    </div>
+                    <div class="card-body">
+                        <p class="card-text">{{ comment.contents|linebreaksbr}}</p>
+                    </div>
+                </div>
+                <br>                   
+            </div>
+            {% empty %}
+                <p class = 'card-text'>No comments here yet :(</p>
+                <br>
+            {% endfor %}
+
+            <hr>
+                
+                    <form action = "{% url 'comment_write' details_pk=details.pk %}" method="POST">
+                        {% csrf_token %}
+                        <div class="form-floating">
+                            <textarea class="form-control" name = "contents" placeholder="Leave a comment here" id="floatingTextarea"></textarea>
+                            <label for="floatingTextarea">Comments</label>
+                        </div>
+                        <br>
+                        <button class="btn btn-outline-secondary" type="submit" id="button-addon2">작성</button>
+                    </form>
+                    
+                    
+                
+                
+        </div>
+        <div class = 'container'>
+            <hr>
             <br>
             <div class = "d-grid gap-2 col-6 mx-auto">
                 <a href="." class="btn btn-md btn-outline-secondary">목록</a>
@@ -30,6 +67,8 @@
             </div>
             <br>
             <br>
+            
         </div>
+
 
  {% endblock %}
