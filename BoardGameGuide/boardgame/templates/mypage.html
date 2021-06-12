@@ -1,66 +1,59 @@
-{% extends 'base.html' %}
-{% load static %}
-{% block content %}
-<link rel="stylesheet" type="text/css" href="{% static 'css/mypage.css' %}">
+{% extends 'base.html' %} {% load static %} {% block content %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/mypage.css' %}" />
 
-
-    <div id="section" class="member container-md">
-      <h4 class="title"><b>회원 정보</b></h4>
-      <div class="card">
-        <div class="card-text">
+<div id="section" class="member container-md">
+  <h4 class="title"><b>회원 정보</b></h4>
+  <div class="card">
+    <div class="card-text">
       <p>사용자 아이디 : {{userInfo.user_id}}</p>
       <p>사용자 이름 : {{userInfo.name}}</p>
       <p>사용자 이메일 : {{userInfo.email}}</p>
     </div>
   </div>
 </div>
- 
-    <div id="section" class="best container-md">
-      <h4 class="title"><b>추천한 게임</b></h4>
-      {% if userLike %} {% for post in userLike %}
-      <div class="card col-3">
-               
-        <img src="" alt="" class="">
-        <div class="card-body">
-          <h5 class="card-title"><b>보드게임 이름 {{post.game_id.name}}</b></h5>
-     </div>
-    </div>
-      {% endfor %} {% else %}
-      <p>좋아하는 보드게임이 없습니다.</p>
-      {% endif %}
-    </div>
 
-    <div id="section" class="writing container-md">
-      <h4 class="title"><b>내가 쓴 글</b></h4>
-      {% if userPost %} {% for post in userPost %}
-      <div class="card">
-        <div class="card-text">
-      <p><b>게시글 제목 {{post.title}}</b></p>
-      <p>타입(요청 or 자유) : {{post.get_type_display}}</p>
+<div id="section" class="best container-md">
+  <h4 class="title"><b>추천한 게임</b></h4>
+  {% if userLike %} {% for post in userLike %}
+  <div class="card col-3" style="display: inline-block">
+    <img src="" alt="" class="" />
+    <div class="card-body">
+      <h5 class="card-title"><b>보드게임 이름 {{post.game_id.name}}</b></h5>
+    </div>
+  </div>
+  {% endfor %} {% else %}
+  <p>좋아하는 보드게임이 없습니다.</p>
+  {% endif %}
+</div>
+
+<div id="section" class="writing container-md" style="margin-top: 25px">
+  <h4 class="title"><b>내가 쓴 글</b></h4>
+  {% if userPost %} {% for post in userPost %}
+  <div class="card col-6" style="display: inline-block">
+    <div class="card-text">
+      <p>[{{post.get_type_display}}] <b>{{post.title}}</b></p>
       <p>날짜 : {{post.date}}</p>
-      <p>내용 : {{post.contents}}   -> 50자 정도만 보여줘도 되고 빼버려도됨</p>
-      
+      <p>내용 : {{post.contents}}</p>
     </div>
   </div>
-      {% endfor %} {% else %}
-      <p>작성한 게시글이 없습니다.</p>
-      {% endif %}
-  </div>
-    <div id="section" class="comment container-md">
-      <h4 class="title"><b>내가 쓴 댓글</b></h4>
-      {% if userComment %} {% for post in userComment %}
-      <div class="card">
-        <div class="card-text">
-          <p>날짜 : {{post.date}}</p>
-          <p>댓글 내용 : {{post.contents}}</p>
-          <p>해당 커뮤니티 글 : {{post.community_id}}  -> 클릭했을때 연결할 커뮤니티 페이지 url에 사용</p>
-    </div>
-  </div>
-      {% endfor %} {% else %}
-      <p>작성한 댓글이 없습니다.</p>
-      {% endif %}
-    </div>
-    
+  {% endfor %} {% else %}
+  <p>작성한 게시글이 없습니다.</p>
+  {% endif %}
+</div>
 
+<div id="section" class="comment container-md">
+  <h4 class="title"><b>내가 쓴 댓글</b></h4>
+  {% if userComment %} {% for post in userComment %}
+  <div class="card">
+    <div class="card-text">
+      <p>날짜 : {{post.date}}</p>
+      <p>댓글 내용 : {{post.contents}}</p>
+      <p>해당 커뮤니티 글 : {{post.community_id}} -> 클릭했을때 연결할 커뮤니티 페이지 url에 사용</p>
+    </div>
+  </div>
+  {% endfor %} {% else %}
+  <p>작성한 댓글이 없습니다.</p>
+  {% endif %}
+</div>
 
 {% endblock %}
