@@ -4,11 +4,10 @@
 
 <div class="container" style="word-break: break-all">
   <br />
-  <h1 class="name">= POST =</h1>
 
   <br /><br />
   <h1 class="type">[{{details.get_type_display}}]</h1>
-  <h1 class="title">{{details.title}}</h1>
+  <h2 class="title"><b>{{details.title}}</b></h2>
   <br />
   <h5 class="author">작성자 : {{details.writer_id}}</h5>
   <hr />
@@ -16,23 +15,36 @@
   <p class="what">{{details.contents|linebreaksbr}}</p>
   <br />
 
-  <p class="date">{{details.date|date:'Y/m/d H-i' }}</p>
+  <p class="date">{{details.date|date:'Y/m/d H:i' }}</p>
 </div>
 <div class="container">
   <hr />
+  <form action="{% url 'comment_write' details_pk=details.pk %}" method="POST">
+    {% csrf_token %}
+    <div class="form-floating">
+      <textarea
+        class="form-control"
+        name="contents"
+        placeholder="Leave a comment here"
+        id="floatingTextarea"
+        style="height: 150px; resize: none; margin-bottom: 5px"
+      ></textarea>
+      <label for="floatingTextarea">Comments</label>
+      <button class="btn btn-outline-secondary" type="submit" id="button-addon2" style="float: right">작성</button>
+    </div>
+  </form>
+  <br /><br />
   {% for comment in details.comments.all %}
-  <div class="comment">
-    <br />
+  <div class="comment" style="margin: 15px 0">
     <div class="card">
       <div class="card-header" style="padding-left: 80px; padding-right: 80px">
         <strong class="writer" style="float: left">작성자 : {{ comment.writer }}</strong>
-        <div class="date2" style="float: right">{{ comment.date|date:'Y/m/d H-i' }}</div>
+        <div class="date2" style="float: right">{{ comment.date|date:'Y/m/d H:i' }}</div>
       </div>
       <div class="card-body">
         <p class="card-text">{{ comment.contents|linebreaksbr}}</p>
       </div>
     </div>
-    <br />
   </div>
   {% empty %}
   <p class="card-text">No comments here yet :(</p>
@@ -40,16 +52,6 @@
   {% endfor %}
 
   <hr />
-
-  <form action="{% url 'comment_write' details_pk=details.pk %}" method="POST">
-    {% csrf_token %}
-    <div class="form-floating">
-      <textarea class="form-control" name="contents" placeholder="Leave a comment here" id="floatingTextarea"></textarea>
-      <label for="floatingTextarea">Comments</label>
-    </div>
-    <br />
-    <button class="btn btn-outline-secondary" type="submit" id="button-addon2">작성</button>
-  </form>
 </div>
 <div class="container">
   <hr />
