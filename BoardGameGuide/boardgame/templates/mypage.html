@@ -29,7 +29,7 @@
 <div id="section" class="writing container-md" style="margin-top: 25px">
   <h4 class="title"><b>내가 쓴 글</b></h4>
   {% if userPost %} {% for post in userPost %}
-  <div class="card col-6" style="display: inline-block">
+  <div class="card" style="display: inline-block; cursor: pointer; width: 49%" onclick="location.href='/comu_list/{{ post.id }}'">
     <div class="card-text">
       <p>[{{post.get_type_display}}] <b>{{post.title}}</b></p>
       <p>날짜 : {{post.date}}</p>
@@ -44,11 +44,10 @@
 <div id="section" class="comment container-md">
   <h4 class="title"><b>내가 쓴 댓글</b></h4>
   {% if userComment %} {% for post in userComment %}
-  <div class="card">
+  <div class="card" onclick="location.href='/comu_list/{{ post.community_id }}'" style="cursor: pointer; display: inline-block; width: 49%">
     <div class="card-text">
       <p>날짜 : {{post.date}}</p>
       <p>댓글 내용 : {{post.contents}}</p>
-      <p>해당 커뮤니티 글 : {{post.community_id}} -> 클릭했을때 연결할 커뮤니티 페이지 url에 사용</p>
     </div>
   </div>
   {% endfor %} {% else %}
