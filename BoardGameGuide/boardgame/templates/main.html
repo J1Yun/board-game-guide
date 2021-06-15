@@ -75,7 +75,7 @@
   <div class="row">
     {% if gameList %} {% for post in gameList %}
     <div class="game">
-      <div class="card" style="width: 70%; margin: 5px auto">
+      <div class="card" style="width: 70%; margin: 5px auto; cursor: pointer" onclick="location.href='/game/{{post.id}}'">
         <img src="" alt="" class="col-12" />
         <div class="card-body">
           <h5 class="card-title"><b>{{post.name}}</b></h5>
