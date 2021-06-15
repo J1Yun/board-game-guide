@@ -203,7 +203,7 @@ def mypage(request):
         except Recommend.DoesNotExist:
             userLike = None
         try:
-            userComment = Comment.objects.filter(writer_id=u_id)
+            userComment = Comment.objects.filter(writer=u_id)
         except Comment.DoesNotExist:
             userComment = None
         return render(request, 'mypage.html', { 'userInfo':userInfo, 'userLike':userLike, 'userPost':userPost, 'userComment':userComment})
