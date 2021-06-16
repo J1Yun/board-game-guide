@@ -13,10 +13,11 @@
           <div style="float: left; width: 13%; position: absolute; top: 45%; text-align: center">
             <h4 style="color: #198754"><b>{{forloop.counter}}위</b></h4>
           </div>
-          <div style="float: right; width: 85%; border-left: 1px solid grey; padding-left: 20px">
+          <img src="{% get_static_prefix %}game_img/{{post.gameImg}}" width="265" height="265" style="float: right; clear: both" />
+          <div style="float: right; width: 58%; border-left: 1px solid grey; padding-left: 20px">
             <h5 class="card-title"><b>{{post.name}}</b></h5>
             <br />
-            <p class="card-text">
+            <p>
               참가 인원 : <span class="game-lparticipant">{{post.l_participant}}</span>-<span class="game-hparticipant"
                 >{{post.h_participant}}</span
               >명
