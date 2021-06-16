@@ -1,24 +1,65 @@
-{% extends 'base.html' %}
-{% load static %}
-{% block content %}
-<link rel="stylesheet" type="text/css" href="{% static 'css/game.css' %}">
-    <div class="body container-md">
-            <div class = 'title'>
-                <h2><b>보드게임 이름</b></h2>
-            </div>
-            <hr>
-            <div class = 'intro'>
-                 <h1>intro</h1>
-            </div>
-            <div class = 'ruleselect'>
-              
-                  <input type = "radio" id = "Image" name = "rules" value = "Image"><label for = "Image">Image</label></label>
-                  <input type = "radio" id = "Video" name = "rules" value = "Video"><label for = "Video">Video</label>
-                  <input type = "radio" id = "Tutorial" name = "rules" value = "Tutorial"><label for = "Tutorial">Tutorial</label>
-            </div>      
-            <div class = 'rule'>
-                <h1>rule</h1>
-            </div>
-        </div>
+{% extends 'base.html' %} {% load static %} {% block content %}
+<style>
+  .stag {
+    background-color: var(--logo-background-color);
+    margin-right: 10px;
+  }
+  .ptag {
+    font-size: 20px;
+    margin-bottom: 20px;
+  }
+</style>
+<script src="https://kit.fontawesome.com/51db22a717.js" crossorigin="anonymous"></script>
+<link rel="stylesheet" type="text/css" href="{% static 'css/game.css' %}" />
+<div class="container">
+  <div class="title">
+    <h2><b>{{game.name}}</b></h2>
+  </div>
+  <hr />
+  <div style="height: 300px; width: 900px; margin: 0 auto">
+    <img src="{% get_static_prefix %}game_img/{{game.gameImg}}" width="300" height="300" style="float: left; margin-right: 60px" />
+    <p class="ptag">
+      <span class="stag"><b>참가 인원</b></span> {{game.l_participant}}-{{game.h_participant}}명
+    </p>
+    <p class="ptag">
+      <span class="stag"><b>대상 연령</b></span> {{game.age}}세 이상
+    </p>
+    <p class="ptag">
+      <span class="stag"><b>게임 시간</b></span> {{game.runtime}}시간
+    </p>
+    <p class="ptag">
+      <span class="stag"><b>게임 장르</b></span> {{game.get_genre_display}}
+    </p>
+    <p class="ptag">
+      <span class="stag"><b> 게임언어</b></span> {{game.get_language_display}}
+    </p>
+    <div style="float: right">
+      <a class="btn btn-outline-success btn-sm" href="{% url  game.id%}" role="button"
+        ><i class="far fa-thumbs-up"></i> 추천 {{game.likes}}</a
+      >
+      <button type="button" class="btn btn-outline-success btn-sm"><i class="fas fa-share-alt"></i> 공유</button>
+    </div>
+  </div>
+  <div class="intro">
+    <h1>intro</h1>
+  </div>
+  <div class="ruleselect">
+    <input type="radio" id="Image" name="rules" value="Image" /><label for="Image">Image</label>
+    <input type="radio" id="Video" name="rules" value="Video" /><label for="Video">Video</label>
+    <input type="radio" id="Tutorial" name="rules" value="Tutorial" /><label for="Tutorial">Tutorial</label>
+  </div>
+  <div class="rule">
+    <h1>rule</h1>
+    <iframe
+      width="560"
+      height="315"
+      src="{{game.ruleVedio}}"
+      title="YouTube video player"
+      frameborder="0"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+      allowfullscreen
+    ></iframe>
+  </div>
+</div>
 
 {% endblock %}
