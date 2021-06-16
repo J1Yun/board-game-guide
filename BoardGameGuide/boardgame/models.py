@@ -34,6 +34,10 @@ class Game(models.Model):
     )
     genre = models.IntegerField(choices=TYPE_GENRE_CHOICES)
     likes = models.IntegerField(default=0)
+    gameImg = models.CharField(max_length=100)
+    ruleImg = models.CharField(max_length=100)
+    ruleVedio = models.CharField(max_length=300)
+    ruleText = models.TextField()
     
     def __str__(self):
         return self.name
