@@ -35,6 +35,6 @@ urlpatterns = [
     path('login/',boardgame.views.login, name='login'),
     path('signup/',boardgame.views.signup, name='signup'),
     path('mypage/',boardgame.views.mypage, name='mypage'),
-    path('game/', boardgame.views.game, name = 'game'),
+    path('game/<int:game_id>', boardgame.views.game, name = 'game'),
     
 ]

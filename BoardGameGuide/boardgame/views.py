@@ -53,14 +53,8 @@ def comu_update(request, community_id):
 
 
 def comu_detail(request, community_id):
-    
     try:
-        
         details = get_object_or_404(Community, pk=community_id)
-
-       
-       
-            
     except Community.DoesNotExist:
         raise Http404('해당 게시물을 찾을 수 없습니다.')
     
@@ -209,6 +203,10 @@ def mypage(request):
         return render(request, 'mypage.html', { 'userInfo':userInfo, 'userLike':userLike, 'userPost':userPost, 'userComment':userComment})
     return render(request, 'mypage.html')
 
-def game(request):
-    return render(request, 'game.html')
+def game(request, game_id):
+    try:
+        games = get_object_or_404(Game, pk=game_id)
+    except Community.DoesNotExist:
+        raise Http404('해당 게임 페이지를 찾을 수 없습니다.')
+    return render(request, 'game.html', {'game': games})
 
