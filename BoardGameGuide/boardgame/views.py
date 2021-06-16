@@ -33,11 +33,27 @@ def comment_write(request, details_pk):
 
 def comu_delete(request, community_id):
     community = get_object_or_404(Community, pk = community_id)
-    community.delete()
+
+    userid = request.session.get('user')
+    user = User.objects.get(pk = userid)
+
+    if user != community.writer_id:
+        messages.info(request, '삭제권한이 없습니다.')
+        return redirect('/comu_list/' + str(community.id))
+    else :
+        community.delete()
+        
     return redirect('comu_list')
 
 def comu_update(request, community_id):
     community = get_object_or_404(Community, pk = community_id)
+
+    userid = request.session.get('user')
+    user = User.objects.get(pk = userid)
+
+    if user != community.writer_id:
+        messages.info(request, '수정권한이 없습니다.')
+        return redirect('/comu_list/' + str(community.id))
 
     if request.method == "POST":
         community.title = request.POST['title']
@@ -61,8 +77,11 @@ def comu_detail(request, community_id):
     return render(request, 'comu_detail.html', {'details':details})
 
 def comu_write(request):
+    
+
     return render(request, 'comu_write.html')
 
+    
 def create(request):
     if not request.session.get('user'):
         return redirect('login')
