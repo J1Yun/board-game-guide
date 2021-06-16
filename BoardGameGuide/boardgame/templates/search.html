@@ -19,9 +19,14 @@
   <h1>"{{word}}"의 검색결과 입니다.</h1>
   <hr />
   {% if gameList %} {% for post in gameList %}
-  <div class="card" style="width: 70%; margin: 5px auto">
-    <img src="" alt="" class="col-12" />
+  <div class="card" style="width: 70%; margin: 5px auto; cursor: pointer" onclick="location.href='/game/{{post.id}}'">
     <div class="card-body">
+      <img
+        src="{% get_static_prefix %}game_img/{{post.gameImg}}"
+        width="265"
+        height="265"
+        style="float: left; margin-right: 30px; clear: left"
+      />
       <h5 class="card-title"><b>{{post.name}}</b></h5>
       <br />
       <p class="card-text">
