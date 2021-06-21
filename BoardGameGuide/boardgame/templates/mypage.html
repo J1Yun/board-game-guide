@@ -16,8 +16,8 @@
   <h4 class="title"><b>추천한 게임</b></h4>
   {% if userLike %} {% for post in userLike %}
   <div class="card col-3" style="display: inline-block">
-    <img src="{% get_static_prefix %}game_img/{{post.gameImg}}" />
-    <div class="card-body">
+    <img src="{% get_static_prefix %}game_img/{{post.game_id.gameImg}}" width="300" />
+    <div class="card-body" style="text-align: center">
       <h5 class="card-title"><b>{{post.game_id.name}}</b></h5>
     </div>
   </div>
